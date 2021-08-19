@@ -2,6 +2,7 @@
   "name": "@a-maged/usecalendar",
   "version": "0.1.1",
   "license": "MIT",
+  "homepage": "https://github.com/A-Maged/useCalendar",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
