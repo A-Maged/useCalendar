@@ -6,8 +6,8 @@ import React, {
   useContext,
 } from 'react';
 
-export type ICalendarContext = null | {
-  events: any[];
+export type ICalendarContext<Event = any> = null | {
+  events: Event[];
   targetDate: Date;
   calendarMatrix: Date[][];
   currentWeek: Date[];
@@ -32,8 +32,8 @@ export function CalendarProvider({ children, ...props }: CalendarProps) {
   );
 }
 
-export function useCalendarContext() {
-  const context = useContext(CalendarContext);
+export function useCalendarContext<Event>() {
+  const context = useContext<ICalendarContext<Event>>(CalendarContext);
 
   if (!context) {
     throw new Error('Must wrap Element in a Calendar Provider');
