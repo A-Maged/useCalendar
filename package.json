@@ -63,5 +63,11 @@
   },
   "dependencies": {
     "date-fns": "^2.23.0"
-  }
+  },
+  "keywords": [
+    "useCalendar",
+    "react-calendar",
+    "calendar",
+    "hook"
+  ]
 }
