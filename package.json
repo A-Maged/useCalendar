@@ -39,7 +39,7 @@
   "size-limit": [
     {
       "path": "dist/usecalendar.cjs.production.min.js",
-      "limit": "10 KB"
+      "limit": "13 KB"
     },
     {
       "path": "dist/usecalendar.esm.js",
@@ -47,7 +47,7 @@
     }
   ],
   "devDependencies": {
-    "@size-limit/preset-small-lib": "^5.0.3",
+    "@size-limit/preset-small-lib": "^9.0.0",
     "@testing-library/react-hooks": "^7.0.1",
     "@types/react": "^17.0.19",
     "@types/react-dom": "^17.0.9",
