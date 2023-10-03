@@ -1,5 +1,8 @@
 import { useCallback, useState } from 'react';
-import { addMonths, addWeeks, subMonths, subWeeks } from 'date-fns';
+import addMonths from 'date-fns/addMonths';
+import addWeeks from 'date-fns/addWeeks';
+import subMonths from 'date-fns/subMonths';
+import subWeeks from 'date-fns/subWeeks';
 
 import { WeekStartsOn, getCalendarArray, getCurrentWeek } from './helpers';
 

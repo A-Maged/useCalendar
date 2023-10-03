@@ -1,14 +1,12 @@
-import {
-  addDays,
-  eachDayOfInterval,
-  eachWeekOfInterval,
-  endOfMonth,
-  endOfWeek,
-  format,
-  getWeekOfMonth,
-  startOfMonth,
-  startOfWeek,
-} from 'date-fns';
+import addDays from 'date-fns/addDays';
+import eachDayOfInterval from 'date-fns/eachDayOfInterval';
+import eachWeekOfInterval from 'date-fns/eachWeekOfInterval';
+import endOfMonth from 'date-fns/endOfMonth';
+import endOfWeek from 'date-fns/endOfWeek';
+import format from 'date-fns/format';
+import getWeekOfMonth from 'date-fns/getWeekOfMonth';
+import startOfMonth from 'date-fns/startOfMonth';
+import startOfWeek from 'date-fns/startOfWeek';
 
 /* 0 is Sunday, 1 is Monday, and so on */
 export enum WeekStartsOn {
