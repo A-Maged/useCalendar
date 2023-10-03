@@ -1,12 +1,15 @@
 import { useCallback, useState } from 'react';
 import { addMonths, addWeeks, subMonths, subWeeks } from 'date-fns';
 
-import { getCalendarArray, getCurrentWeek } from './helpers';
+import { WeekStartsOn, getCalendarArray, getCurrentWeek } from './helpers';
 
-export const useCalendar = (date = new Date()) => {
+export const useCalendar = (
+  date = new Date(),
+  weekStartsOn: WeekStartsOn = WeekStartsOn.SUNDAY
+) => {
   const [targetDate, setTargetDate] = useState(date);
 
-  const calendarMatrix = getCalendarArray(targetDate);
+  const calendarMatrix = getCalendarArray({ date: targetDate, weekStartsOn });
   const currentWeek = getCurrentWeek({
     date: targetDate,
     calendar: calendarMatrix,

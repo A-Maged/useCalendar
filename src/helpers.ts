@@ -10,15 +10,38 @@ import {
   startOfWeek,
 } from 'date-fns';
 
-/* https://github.com/yucatio/date-fns-calendar/blob/master/src/components/calendar/index.js */
-export function getCalendarArray(date = new Date()) {
-  const sundays = eachWeekOfInterval({
-    start: startOfMonth(date),
-    end: endOfMonth(date),
-  });
+/* 0 is Sunday, 1 is Monday, and so on */
+export enum WeekStartsOn {
+  SUNDAY,
+  MONDAY,
+  TUESDAY,
+  WEDNESDAY,
+  THURSDAY,
+  FRIDAY,
+  SATURDAY,
+}
 
-  return sundays.map(sunday =>
-    eachDayOfInterval({ start: sunday, end: endOfWeek(sunday) })
+/* https://github.com/yucatio/date-fns-calendar/blob/master/src/components/calendar/index.js */
+export function getCalendarArray(args?: {
+  date?: Date;
+  weekStartsOn?: WeekStartsOn;
+}) {
+  const date = args?.date || new Date();
+  const weekStartsOn = args?.weekStartsOn || WeekStartsOn.SUNDAY;
+
+  const saturdays = eachWeekOfInterval(
+    {
+      start: startOfMonth(date),
+      end: endOfMonth(date),
+    },
+    { weekStartsOn }
+  );
+
+  return saturdays.map(saturday =>
+    eachDayOfInterval({
+      start: saturday,
+      end: endOfWeek(saturday, { weekStartsOn }),
+    })
   );
 }
 
@@ -29,7 +52,7 @@ export function getCurrentWeek({
   date?: Date;
   calendar?: Date[][];
 }) {
-  calendar = calendar || getCalendarArray(date);
+  calendar = calendar || getCalendarArray({ date });
   const currentWeekIndex = getWeekOfMonth(date) - 1;
   const currentWeek = calendar[currentWeekIndex];
   return currentWeek;

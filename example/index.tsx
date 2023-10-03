@@ -1,11 +1,16 @@
 import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { useCalendar, CalendarProvider, useCalendarContext } from '../src';
+import {
+  useCalendar,
+  CalendarProvider,
+  useCalendarContext,
+  WeekStartsOn,
+} from '../src';
 import { format, getDate } from 'date-fns';
 
 const App = () => {
-  const calendar = useCalendar();
+  const calendar = useCalendar(new Date(), WeekStartsOn.SUNDAY);
 
   const {
     calendarMatrix,
